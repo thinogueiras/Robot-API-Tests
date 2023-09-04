@@ -1,33 +1,37 @@
 # Automação de Testes de API com Robot Framework e Python Requests Library.
 
-<h1 align="center">
-    <img src=".github/images/robot.png" width="350px">
-    <img src=".github/images/python.png" width="350px">
-</h1>
+<p align="center">
+    <img src=".github/images/robot.png" width="275px">
+    <img src=".github/images/python.png" width="325px">
+</p>
 
-## Pré-requisitos
+## Pré-requisitos:
 
 [Python](https://www.python.org/downloads/) 3.10 ou superior.
 
 
-## Instalação
+## Instalação:
 
 ```
 pip install -r requirements.txt
 ```
 
-## Execução dos Testes
+## Execução dos Testes:
 
 ```
 robot -d ./logs tests/
 ``````
 
-## Relatórios
+## Relatórios 📝 📄
 
-Verifique a pasta `logs` caso queira visualizar os relatórios da execução.
+Verifique a pasta `logs` para visualizar os <b>relatórios</b> da execução.
 
-Para visualizá-los, abra o arquivo `report.html` ou `log.html` que é mais detalhado.
+Abra o arquivo `report.html` ou `log.html` que é mais detalhado.
 
 ---
 
-Feito com 💜 &nbsp;por Thiago Nogueira dos Santos ✅ &nbsp;[Meu linkedin](https://www.linkedin.com/in/thinogueiras/) ✅
+<a href="https://www.linkedin.com/in/thinogueiras"><img alt="Linkedin" src="https://img.shields.io/badge/-LinkedIn-blue?style=for-the-badge&logo=Linkedin&logoColor=white"></a>
+
+<strong>Thiago Nogueira dos Santos</strong> 🤓 🫰🏽
+
+QA Automation Engineer 🔎 🐞
