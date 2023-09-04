@@ -77,7 +77,7 @@ Não deve inserir movimentação com data futura
     Should Be Equal         ${message}    Data da Movimentação deve ser menor ou igual à data atual
 
 Deve remover uma movimentação
-    ${movement_id}          Get Movement ID By Name        Movimentacao para exclusao
+    ${movement_id}          Get Movement ID By Name       Movimentacao para exclusao
 
     ${response}             Delete Movement        ${movement_id}
 
