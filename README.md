@@ -5,18 +5,17 @@
     <img src=".github/images/python.png" width="325px">
 </p>
 
-## Pré-requisitos:
+## Pré-requisitos de ambiente 📋 💻
 
-[Python](https://www.python.org/downloads/) 3.10 ou superior.
+[Python](https://www.python.org/downloads/) 3.10.12 ou superior.
 
-
-## Instalação:
+## Instalação do projeto 🚀 🚀
 
 ```
 pip install -r requirements.txt
 ```
 
-## Execução dos Testes:
+## Execução dos testes 🤖 🤖
 
 ```
 robot -d ./logs tests/
