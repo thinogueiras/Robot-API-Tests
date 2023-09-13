@@ -1,5 +1,7 @@
 # Automação de Testes de API com Robot Framework e Python Requests Library.
 
+[![Robot Framework - API Tests](https://github.com/thinogueiras/Robot-API-Tests/actions/workflows/continuous-testing.yml/badge.svg)](https://github.com/thinogueiras/Robot-API-Tests/actions/workflows/continuous-testing.yml)
+
 <p align="center">
     <img src=".github/images/robot.png" width="275px">
     <img src=".github/images/python.png" width="325px">
