@@ -1,11 +1,9 @@
 *** Settings ***
 Documentation               Serviços
 
-Library                     ../libraries/search_values.py
-
+Library                     libs/search_values.py
 Library                     RequestsLibrary
 
-Resource                    variables.resource
 Resource                    helpers.resource
 
 *** Keywords ***

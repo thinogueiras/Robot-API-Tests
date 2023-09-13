@@ -3,9 +3,10 @@ Documentation               Helpers
 
 Library                     RequestsLibrary
 
-Resource                    variables.resource
-
 *** Variables ***
+${BASE_URL}                 https://barrigarest.wcaquino.me
+${USERNAME}                 thinogueiras@testing.com
+${PASSWORD}                 test123
 &{AUTH}                     email=${username}        senha=${password}
 
 *** Keywords ***

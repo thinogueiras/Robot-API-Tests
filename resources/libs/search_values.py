@@ -1,5 +1,3 @@
-from robot.api import logger
-
 
 def find_value_by_id(lista, id):
     for item in lista:

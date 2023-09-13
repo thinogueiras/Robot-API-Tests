@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation               Arquivo base do projeto
 
-Library                     ../libraries/search_values.py
+Library                     libs/search_values.py
 
 Resource                    services.resource
 Resource                    helpers.resource
