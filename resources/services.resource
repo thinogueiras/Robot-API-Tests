@@ -8,9 +8,9 @@ Resource                    helpers.resource
 
 *** Keywords ***
 Get Account
-    ${response}             GET
-    ...                     headers=${HEADERS}
-    ...                     url=${BASE_URL}/contas
+    ${response}             GET On Session
+    ...                     alias=Barriga-REST
+    ...                     url=/contas
     ...                     expected_status=any
     
     [Return]                ${response}
@@ -20,9 +20,9 @@ Edit Account
 
     ${account_id}           Get Account ID By Name      ${account_name}
 
-    ${response}             PUT
-    ...                     headers=${HEADERS}
-    ...                     url=${BASE_URL}/contas/${account_id}
+    ${response}             PUT On Session
+    ...                     alias=Barriga-REST
+    ...                     url=/contas/${account_id}
     ...                     json=${payload}
     ...                     expected_status=any
     
@@ -31,9 +31,9 @@ Edit Account
 Insert Account
     [Arguments]             ${payload}
 
-    ${response}             POST
-    ...                     headers=${HEADERS}
-    ...                     url=${BASE_URL}/contas
+    ${response}             POST On Session
+    ...                     alias=Barriga-REST
+    ...                     url=/contas
     ...                     json=${payload}
     ...                     expected_status=any
     
@@ -42,9 +42,9 @@ Insert Account
 Delete Account
     [Arguments]             ${account_id}
 
-    ${response}             DELETE
-    ...                     headers=${HEADERS}
-    ...                     url=${BASE_URL}/contas/${account_id}
+    ${response}             DELETE On Session
+    ...                     alias=Barriga-REST
+    ...                     url=/contas/${account_id}
     ...                     expected_status=any
 
     [Return]                ${response}
@@ -54,9 +54,9 @@ Get Account Balance
 
     ${account_id}           Get Account ID By Name      ${account_name}
 
-    ${response}             GET
-    ...                     headers=${HEADERS}
-    ...                     url=${BASE_URL}/saldo
+    ${response}             GET On Session
+    ...                     alias=Barriga-REST
+    ...                     url=/saldo
     ...                     expected_status=any
 
     ${value}                Find Value By Id    ${response.json()}    ${account_id}
@@ -64,9 +64,9 @@ Get Account Balance
     [Return]                ${value}
 
 Get All Movements
-    ${response}             GET
-    ...                     headers=${HEADERS}
-    ...                     url=${BASE_URL}/transacoes
+    ${response}             GET On Session
+    ...                     alias=Barriga-REST
+    ...                     url=/transacoes
     ...                     expected_status=any
 
     [Return]                ${response}
@@ -74,9 +74,9 @@ Get All Movements
 Insert Movement
     [Arguments]             ${payload}
 
-    ${response}             POST
-    ...                     headers=${HEADERS}
-    ...                     url=${BASE_URL}/transacoes
+    ${response}             POST On Session
+    ...                     alias=Barriga-REST
+    ...                     url=/transacoes
     ...                     json=${payload}
     ...                     expected_status=any
 
@@ -85,9 +85,9 @@ Insert Movement
 Delete Movement
     [Arguments]             ${movement_id}
 
-    ${response}             DELETE
-    ...                     headers=${HEADERS}
-    ...                     url=${BASE_URL}/transacoes/${movement_id}
+    ${response}             DELETE On Session
+    ...                     alias=Barriga-REST
+    ...                     url=/transacoes/${movement_id}
     ...                     expected_status=any
 
     [Return]                ${response}

@@ -3,7 +3,7 @@ Documentation               Consulta de saldo
 
 Resource                    ../resources/base.resource
 
-Suite Setup                 Start Test
+Suite Setup                 Setup
 
 *** Test Cases ***
 Deve validar o saldo da conta

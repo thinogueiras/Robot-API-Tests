@@ -3,7 +3,7 @@ Documentation               Contas
 
 Resource                    ../resources/base.resource
 
-Suite Setup                 Start Test
+Suite Setup                 Setup
 
 *** Test Cases ***
 Deve retornar todas as contas
@@ -43,17 +43,18 @@ Não deve inserir uma conta com mesmo nome
     Should Be Equal         ${response.json()}[error]       Já existe uma conta com esse nome!
 
 Não deve remover conta com movimentação
-    ${account_id}          Get Account ID By Name        Conta com movimentacao
+    ${account_id}          Get Account ID By Name           Conta com movimentacao
 
     ${response}            Delete Account         ${account_id}
 
     Status Should Be       500
 
-    Should Be Equal        ${response.json()}[constraint]    transacoes_conta_id_foreign
+    Should Be Equal        ${response.json()}[constraint]   transacoes_conta_id_foreign
 
 Deve exigir autenticação
-    Set Global Variable     &{HEADERS}            Authorization=${EMPTY}
-
-    ${response}             Get Account
+    ${response}             GET
+    ...                     url=${BASE_URL}/contas
+    ...                     headers=${EMPTY}
+    ...                     expected_status=any
 
     Status Should Be        401

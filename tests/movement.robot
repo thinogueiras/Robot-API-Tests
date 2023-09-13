@@ -3,7 +3,7 @@ Documentation               Movimentações
 
 Resource                    ../resources/base.resource
 
-Suite Setup                 Start Test
+Suite Setup                 Setup
 
 *** Test Cases ***
 Deve retornar todas as Movimentações
@@ -68,13 +68,13 @@ Não deve inserir movimentação com data futura
     ...                     valor=1111.11
     ...                     status=True
 
-    ${response}             Insert Movement               ${payload}
+    ${response}             Insert Movement        ${payload}
 
-    ${message}              Find Value By Key        ${response.json()}        msg
+    ${message}              Find Value By Key      ${response.json()}        msg
 
     Status Should Be        400
 
-    Should Be Equal         ${message}    Data da Movimentação deve ser menor ou igual à data atual
+    Should Be Equal         ${message}             Data da Movimentação deve ser menor ou igual à data atual
 
 Deve remover uma movimentação
     ${movement_id}          Get Movement ID By Name       Movimentacao para exclusao
