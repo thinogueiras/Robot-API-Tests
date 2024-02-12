@@ -1,9 +1,10 @@
 *** Settings ***
 Documentation               Serviços
 
-Library                     libs/search_values.py
 Library                     RequestsLibrary
+Library                     libs/search_values.py
 
+Resource                    variables.resource
 Resource                    helpers.resource
 
 *** Keywords ***
@@ -12,8 +13,8 @@ Get Account
     ...                     alias=Barriga-REST
     ...                     url=/contas
     ...                     expected_status=any
-    
-    [Return]                ${response}
+
+    RETURN                  ${response}
 
 Edit Account
     [Arguments]             ${account_name}             ${payload}
@@ -25,8 +26,8 @@ Edit Account
     ...                     url=/contas/${account_id}
     ...                     json=${payload}
     ...                     expected_status=any
-    
-    [Return]                ${response}
+
+    RETURN                  ${response}
 
 Insert Account
     [Arguments]             ${payload}
@@ -36,8 +37,8 @@ Insert Account
     ...                     url=/contas
     ...                     json=${payload}
     ...                     expected_status=any
-    
-    [Return]                ${response}
+
+    RETURN                  ${response}
 
 Delete Account
     [Arguments]             ${account_id}
@@ -47,7 +48,7 @@ Delete Account
     ...                     url=/contas/${account_id}
     ...                     expected_status=any
 
-    [Return]                ${response}
+    RETURN                  ${response}
 
 Get Account Balance        
     [Arguments]             ${account_name}
@@ -61,7 +62,7 @@ Get Account Balance
 
     ${value}                Find Value By Id    ${response.json()}    ${account_id}
 
-    [Return]                ${value}
+    RETURN                  ${value}
 
 Get All Movements
     ${response}             GET On Session
@@ -69,7 +70,7 @@ Get All Movements
     ...                     url=/transacoes
     ...                     expected_status=any
 
-    [Return]                ${response}
+    RETURN                  ${response}
 
 Insert Movement
     [Arguments]             ${payload}
@@ -80,7 +81,7 @@ Insert Movement
     ...                     json=${payload}
     ...                     expected_status=any
 
-    [Return]                ${response}
+    RETURN                  ${response}
 
 Delete Movement
     [Arguments]             ${movement_id}
@@ -90,4 +91,18 @@ Delete Movement
     ...                     url=/transacoes/${movement_id}
     ...                     expected_status=any
 
-    [Return]                ${response}
+    RETURN                  ${response}
+
+Check Route Authentication
+    [Arguments]             @{routes}
+
+    FOR    ${route}    IN   @{routes}
+
+        ${response}         GET
+        ...                 url=${BASE_URL}/${route}
+        ...                 headers=${EMPTY}
+        ...                 expected_status=any
+
+        Status Should Be    401
+
+    END

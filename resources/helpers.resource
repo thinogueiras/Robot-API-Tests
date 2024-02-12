@@ -12,7 +12,7 @@ Get Account ID By Name
     ...                     url=/contas?nome=${account_name}
     ...                     expected_status=any
 
-    [Return]                ${response.json()}[0][id]
+    RETURN                  ${response.json()}[0][id]
 
 Get Movement ID By Name
     [Arguments]             ${movement_description}
@@ -22,7 +22,7 @@ Get Movement ID By Name
     ...                     url=/transacoes?descricao=${movement_description}
     ...                     expected_status=any
 
-    [Return]                ${response.json()}[0][id]
+    RETURN                  ${response.json()}[0][id]
 
 Reset Database
     ${response}             GET On Session

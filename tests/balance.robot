@@ -10,7 +10,7 @@ Deve validar o saldo da conta
     ${response}             Get Account Balance        Conta para saldo
 
     Status Should Be        200
-    
+
     Should Be True          ${response} == 534
 
 

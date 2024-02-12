@@ -52,9 +52,4 @@ Não deve remover conta com movimentação
     Should Be Equal        ${response.json()}[constraint]   transacoes_conta_id_foreign
 
 Deve exigir autenticação
-    ${response}             GET
-    ...                     url=${BASE_URL}/contas
-    ...                     headers=${EMPTY}
-    ...                     expected_status=any
-
-    Status Should Be        401
+    Check Route Authentication    contas    saldo    transacoes    movimentacoes

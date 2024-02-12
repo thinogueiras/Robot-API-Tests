@@ -4,18 +4,11 @@ Documentation               Arquivo base do projeto
 Library                     libs/search_values.py
 
 Resource                    services.resource
-
-*** Variables ***
-${BASE_URL}                 https://barrigarest.wcaquino.me
-${TOKEN}
+Resource                    variables.resource
 
 *** Keywords ***
 Setup
-    IF  $TOKEN == '${null}' or $TOKEN == '${EMPTY}'
-
-        ${AUTH}                 Create Dictionary
-        ...                     email=thinogueiras@testing.com        
-        ...                     senha=test123
+    IF  $TOKEN == '${EMPTY}'
 
         ${response}             POST
         ...                     url=${BASE_URL}/signin

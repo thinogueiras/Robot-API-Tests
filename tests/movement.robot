@@ -10,7 +10,7 @@ Deve retornar todas as Movimentações
     ${response}             Get All Movements
 
     ${size}                 Get Length        ${response.json()}
-    
+
     Status Should Be        200
 
     Should Be True          ${size} == 6

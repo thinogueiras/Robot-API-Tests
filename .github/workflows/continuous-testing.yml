@@ -8,33 +8,28 @@ on:
 
 jobs:
   api-tests:
-    runs-on: ubuntu-22.04
-    name: Run Robot Framework API Tests 🤖
-    
+    runs-on: ubuntu-latest
+    name: Robot Framework API Tests 🤖🤖
+
     steps:
-      - name: Checkout 🚀
-        uses: actions/checkout@v3
+      - name: Checkout 🚀🚀
+        uses: actions/checkout@v4
 
-      - name: Install Robot Framework
-        run: |
-          pip install robotframework
-        
-      - name: Install Python Requests Library
-        run: |          
-          pip install robotframework-requests
+      - name: Install dependencies ➕➕ 
+        run: pip install -r requirements.txt
 
-      - name: API Tests ✅        
-        run: |
-          robot -d ./logs tests/   
-    
-      - name: Upload Reports 📖
+      - name: API Tests 🧪🧪
+        run: robot -d ./reports tests/   
+
+      - name: Upload Reports 📖📖
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: Execution Test Reports
-          path: logs/
+          name: Test Execution Reports
+          path: reports
+          retention-days: 90
           if-no-files-found: warn
-        
+
       - name: Slack Notification - Success        
         if: ${{ success() }}
         uses: rtCamp/action-slack-notify@v2
@@ -44,9 +39,9 @@ jobs:
           SLACK_COLOR: ${{ job.status }}
           SLACK_ICON: https://cdn-icons-png.flaticon.com/512/1642/1642322.png
           SLACK_TITLE: 'All tests passed successfully'          
-          SLACK_MESSAGE: ':robot:  Tests after Pull Request passed  :robot:'
+          SLACK_MESSAGE: ':robot:  Tests passed  :robot:'
           SLACK_USERNAME: SUCCESS
-      
+
       - name: Slack Notification - Failure
         if: ${{ failure() }}
         uses: rtCamp/action-slack-notify@v2
@@ -54,7 +49,7 @@ jobs:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_CHANNEL: pipeline-notifications
           SLACK_COLOR: ${{ job.status }}
-          SLACK_ICON: https://www.novaconcursos.com.br/portal/wp-content/uploads/2013/12/erro-que-concurseiro-comente-300x3001.png          
+          SLACK_ICON: https://cdn-icons-png.flaticon.com/512/3271/3271351.png
           SLACK_TITLE: 'Some tests failed'
-          SLACK_MESSAGE: ':fire:  Tests after Pull Request failed  :fire:'
+          SLACK_MESSAGE: ':fire:  Tests failed  :fire:'
           SLACK_USERNAME: FAILURE
