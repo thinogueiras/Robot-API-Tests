@@ -2,16 +2,11 @@
 
 [![Robot Framework - API Tests](https://github.com/thinogueiras/Robot-API-Tests/actions/workflows/continuous-testing.yml/badge.svg)](https://github.com/thinogueiras/Robot-API-Tests/actions/workflows/continuous-testing.yml)
 
-<p align="center">
-    <img src=".github/images/robot.png" width="275px">
-    <img src=".github/images/python.png" width="325px">
-</p>
+## Pré-requisitos mínimos de ambiente:
 
-## Pré-requisitos mínimos de ambiente 📋 💻
+* [Python](https://www.python.org/downloads/) 3.10.x.
 
-* [Python](https://www.python.org/downloads/) 3.10.12 ou superior.
-
-## Instalação do projeto 🚀 🚀
+## Instalação do projeto:
 
 ```
 pip install -r requirements.txt

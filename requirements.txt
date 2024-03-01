@@ -1,2 +1,2 @@
-robotframework
-robotframework-requests
+robotframework==7.0
+robotframework-requests==0.9.6
