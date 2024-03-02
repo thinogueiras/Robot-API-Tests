@@ -3,10 +3,10 @@ Documentation               Arquivo base do projeto
 
 Resource                    services.resource
 
-Variables                   ../env.yml
-
 *** Variables ***
 ${BASE_URL}                 https://barrigarest.wcaquino.me
+${EMAIL}                    %{EMAIL_USER_API}
+${PASSWORD}                 %{PASSWORD_USER_API}
 &{AUTH}                     email=${EMAIL}        senha=${PASSWORD}
 ${TOKEN}                    ${EMPTY}
 

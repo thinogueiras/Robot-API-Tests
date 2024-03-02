@@ -11,9 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     name: API Tests 🤖🤖
 
-    env:
-      AUTH: ${{ secrets.AUTH }}
-
     steps:
       - name: Checkout 🚀🚀
         uses: actions/checkout@v4
@@ -22,7 +19,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: API Tests 🧪🧪
-        run: robot -d ./reports -v AUTH:"${AUTH}" tests/
+        run: robot -d ./reports -v EMAIL:${{ secrets.EMAIL }} -v PASSWORD:${{ secrets.PASSWORD }} tests
 
       - name: Upload Reports 📖📖
         if: always()
