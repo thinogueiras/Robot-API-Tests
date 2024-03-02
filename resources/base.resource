@@ -1,10 +1,14 @@
 *** Settings ***
 Documentation               Arquivo base do projeto
 
-Library                     libs/search_values.py
-
 Resource                    services.resource
-Resource                    variables.resource
+
+Variables                   ../env.yml
+
+*** Variables ***
+${BASE_URL}                 https://barrigarest.wcaquino.me
+&{AUTH}                     email=${EMAIL}        senha=${PASSWORD}
+${TOKEN}                    ${EMPTY}
 
 *** Keywords ***
 Setup
