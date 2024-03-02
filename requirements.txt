@@ -1,2 +1,3 @@
 robotframework==7.0
 robotframework-requests==0.9.6
+robotframework-jsonlibrary==0.5
