@@ -15,18 +15,8 @@ Deve retornar todas as Movimentações
 
     Should Be True          ${size} == 6
 
-Deve inserir um movimentação
-    ${account_id}           Get Account ID By Name        Conta para movimentacoes
-
-    ${payload}              Create Dictionary
-    ...                     conta_id=${account_id}
-    ...                     descricao=Teste de inserção de movimentação
-    ...                     envolvido=Env mov
-    ...                     tipo=REC
-    ...                     data_transacao=03/09/2023
-    ...                     data_pagamento=30/12/2099
-    ...                     valor=5555.55
-    ...                     status=True
+Deve inserir movimentação
+    ${payload}              Get Movement Fixture   movimentacao_valida
 
     ${response}             Insert Movement        ${payload}
 
@@ -51,30 +41,18 @@ Deve validar os campos obrigatórios para a inserção de uma movimentação
 
     ${list_size}            Get Length        ${msgs_error}
 
-    Should Be True          ${size} == ${list_size}
-
     Status Should Be        400
 
-Não deve inserir movimentação com data futura
-    ${account_id}           Get Account ID By Name        Conta para movimentacoes
+    Should Be True          ${size} == ${list_size}
 
-    ${payload}              Create Dictionary
-    ...                     conta_id=${account_id}
-    ...                     descricao=Teste de inserção de movimentação com data futura
-    ...                     envolvido=Env mov
-    ...                     tipo=REC
-    ...                     data_transacao=30/09/2080
-    ...                     data_pagamento=30/12/2099
-    ...                     valor=1111.11
-    ...                     status=True
+Não deve inserir movimentação com data futura
+    ${payload}              Get Movement Fixture   movimentacao_data_futura
 
     ${response}             Insert Movement        ${payload}
 
-    ${message}              Find Value By Key      ${response.json()}        msg
-
     Status Should Be        400
 
-    Should Be Equal         ${message}             Data da Movimentação deve ser menor ou igual à data atual
+    Should Be Equal         ${response.json()[0]['msg']}        Data da Movimentação deve ser menor ou igual à data atual
 
 Deve remover uma movimentação
     ${movement_id}          Get Movement ID By Name       Movimentacao para exclusao

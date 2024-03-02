@@ -2,6 +2,7 @@
 Documentation               Helpers
 
 Library                     RequestsLibrary
+Library                     JSONLibrary
 
 *** Keywords ***
 Get Account ID By Name
@@ -23,6 +24,22 @@ Get Movement ID By Name
     ...                     expected_status=any
 
     RETURN                  ${response.json()}[0][id]
+
+Get Movement Fixture
+    [Arguments]             ${json_object}
+
+    ${fixture}              Load Json From File
+    ...                     ${EXECDIR}/resources/fixtures/movimentacoes.json
+    ...                     encoding=UTF-8
+
+    ${account_id}           Get Account ID By Name        Conta para movimentacoes
+
+    ${payload}              Update Value To Json
+    ...                     ${fixture["${json_object}"]}
+    ...                     $.conta_id
+    ...                     ${account_id}
+
+    RETURN                  ${payload}
 
 Reset Database
     ${response}             GET On Session
