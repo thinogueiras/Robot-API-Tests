@@ -4,7 +4,6 @@ Documentation               Serviços
 Library                     RequestsLibrary
 Library                     libs/search_values.py
 
-Resource                    variables.resource
 Resource                    helpers.resource
 
 *** Keywords ***
@@ -93,16 +92,22 @@ Delete Movement
 
     RETURN                  ${response}
 
+Get Routes
+    [Arguments]             ${route}
+
+    ${response}             GET On Session
+    ...                     alias=Barriga-REST
+    ...                     url=/${route}
+    ...                     headers=${EMPTY}
+    ...                     expected_status=any
+
+    Status Should Be        401
+
 Check Route Authentication
     [Arguments]             @{routes}
 
     FOR    ${route}    IN   @{routes}
 
-        ${response}         GET
-        ...                 url=${BASE_URL}/${route}
-        ...                 headers=${EMPTY}
-        ...                 expected_status=any
-
-        Status Should Be    401
+        Run Keyword And Continue On Failure    Get routes    ${route}
 
     END

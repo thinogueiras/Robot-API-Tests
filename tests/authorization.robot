@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation               Autorização
+Documentation               Exigência de autenticação das rotas
 
 Resource                    ../resources/base.resource
 
