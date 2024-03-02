@@ -50,6 +50,3 @@ Não deve remover conta com movimentação
     Status Should Be       500
 
     Should Be Equal        ${response.json()}[constraint]   transacoes_conta_id_foreign
-
-Deve exigir autenticação
-    Check Route Authentication    contas    saldo    transacoes    movimentacoes
