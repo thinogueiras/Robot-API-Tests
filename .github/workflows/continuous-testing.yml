@@ -1,15 +1,20 @@
 name: Robot Framework - API Tests
 
 on:
-  push:
-      branches: [ main ]
   pull_request:
       branches: [ main ]
+  push:
+      branches: [ main ]
+
+  workflow_dispatch:
 
 jobs:
   api-tests:
     runs-on: ubuntu-latest
     name: API Tests 🤖🤖
+
+    env:
+      AUTH: ${{ secrets.AUTH }}
 
     steps:
       - name: Checkout 🚀🚀
@@ -19,7 +24,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: API Tests 🧪🧪
-        run: robot -d ./reports tests/   
+        run: robot -d ./reports -v AUTH:"${AUTH}" tests/
 
       - name: Upload Reports 📖📖
         if: always()
