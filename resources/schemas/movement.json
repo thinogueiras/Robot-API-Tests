@@ -1,0 +1,180 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "http://example.com/example.json",
+    "type": "array",
+    "default": [],
+    "title": "Root Schema",
+    "items": {
+        "type": "object",
+        "title": "A Schema",
+        "required": [
+            "id",
+            "descricao",
+            "envolvido",
+            "observacao",
+            "tipo",
+            "data_transacao",
+            "data_pagamento",
+            "valor",
+            "status",
+            "conta_id",
+            "usuario_id",
+            "transferencia_id",
+            "parcelamento_id"
+        ],
+        "properties": {
+            "id": {
+                "type": "integer",
+                "title": "The id Schema",
+                "examples": [
+                    1926111,
+                    1926112,
+                    1926113,
+                    1926114,
+                    1926115,
+                    1926116
+                ]
+            },
+            "descricao": {
+                "type": "string",
+                "title": "The descricao Schema",
+                "examples": [
+                    "Movimentacao para exclusao",
+                    "Movimentacao de conta",
+                    "Movimentacao 1, calculo saldo",
+                    "Movimentacao 2, calculo saldo",
+                    "Movimentacao 3, calculo saldo",
+                    "Movimentacao para extrato"
+                ]
+            },
+            "envolvido": {
+                "type": "string",
+                "title": "The envolvido Schema",
+                "examples": [
+                    "AAA",
+                    "BBB",
+                    "CCC",
+                    "DDD",
+                    "EEE",
+                    "FFF"
+                ]
+            },
+            "observacao": {
+                "type": "null",
+                "title": "The observacao Schema",
+                "examples": [
+                    null
+                ]
+            },
+            "tipo": {
+                "type": "string",
+                "title": "The tipo Schema",
+                "examples": [
+                    "DESP",
+                    "REC"
+                ]
+            },
+            "data_transacao": {
+                "type": "string",
+                "title": "The data_transacao Schema",
+                "examples": [
+                    "2024-03-04T03:00:00.000Z"
+                ]
+            },
+            "data_pagamento": {
+                "type": "string",
+                "title": "The data_pagamento Schema",
+                "examples": [
+                    "2024-03-04T03:00:00.000Z"
+                ]
+            },
+            "valor": {
+                "type": [
+                    "integer",
+                    "string"
+                ],
+                "title": "The valor Schema",
+                "examples": [
+                    1500,
+                    "3500.00",
+                    1000,
+                    "1534.00",
+                    220
+                ]
+            },
+            "status": {
+                "type": "boolean",
+                "title": "The status Schema",
+                "examples": [
+                    true,
+                    false
+                ]
+            },
+            "conta_id": {
+                "type": "integer",
+                "title": "The conta_id Schema",
+                "examples": [
+                    2054740,
+                    2054741,
+                    2054742,
+                    2054743
+                ]
+            },
+            "usuario_id": {
+                "type": "integer",
+                "title": "The usuario_id Schema",
+                "examples": [
+                    34767
+                ]
+            },
+            "transferencia_id": {
+                "type": "null",
+                "title": "The transferencia_id Schema",
+                "examples": [
+                    null
+                ]
+            },
+            "parcelamento_id": {
+                "type": "null",
+                "title": "The parcelamento_id Schema",
+                "examples": [
+                    null
+                ]
+            }
+        }
+    },
+    "examples": [
+        [
+            {
+                "id": 1926111,
+                "descricao": "Movimentacao para exclusao",
+                "envolvido": "AAA",
+                "observacao": null,
+                "tipo": "DESP",
+                "data_transacao": "2024-03-04T03:00:00.000Z",
+                "data_pagamento": "2024-03-04T03:00:00.000Z",
+                "valor": 1500,
+                "status": true,
+                "conta_id": 2054740,
+                "usuario_id": 34767,
+                "transferencia_id": null,
+                "parcelamento_id": null
+            },
+            {
+                "id": 1926112,
+                "descricao": "Movimentacao de conta",
+                "envolvido": "BBB",
+                "observacao": null,
+                "tipo": "DESP",
+                "data_transacao": "2024-03-04T03:00:00.000Z",
+                "data_pagamento": "2024-03-04T03:00:00.000Z",
+                "valor": 1500,
+                "status": true,
+                "conta_id": 2054741,
+                "usuario_id": 34767,
+                "transferencia_id": null,
+                "parcelamento_id": null
+            }
+        ]
+    ]
+}

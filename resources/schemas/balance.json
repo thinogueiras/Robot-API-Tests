@@ -1,0 +1,59 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "http://example.com/example.json",
+    "type": "array",
+    "default": [],
+    "title": "Root Schema",
+    "items": {
+        "type": "object",
+        "title": "A Schema",
+        "required": [
+            "conta_id",
+            "conta",
+            "saldo"
+        ],
+        "properties": {
+            "conta_id": {
+                "type": "integer",
+                "title": "The conta_id Schema",
+                "examples": [
+                    2054722,
+                    2054723
+                ]
+            },
+            "conta": {
+                "type": "string",
+                "title": "The conta Schema",
+                "examples": [
+                    "Conta para movimentacoes",
+                    "Conta com movimentacao",
+                    "Conta para saldo",
+                    "Conta para extrato"
+                ]
+            },
+            "saldo": {
+                "type": "string",
+                "title": "The saldo Schema",
+                "examples": [
+                    "-1500.00",
+                    "534.00",
+                    "-220.00"
+                ]
+            }
+        }
+    },
+    "examples": [
+        [
+            {
+                "conta_id": 2054722,
+                "conta": "Conta para movimentacoes",
+                "saldo": "-1500.00"
+            },
+            {
+                "conta_id": 2054724,
+                "conta": "Conta para saldo",
+                "saldo": "534.00"
+            }
+        ]
+    ]
+}

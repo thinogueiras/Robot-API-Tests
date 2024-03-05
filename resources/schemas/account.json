@@ -1,0 +1,70 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "http://example.com/example.json",
+    "type": "array",
+    "default": [],
+    "title": "Root Schema",
+    "items": {
+        "type": "object",
+        "title": "A Schema",
+        "required": [
+            "id",
+            "nome",
+            "visivel",
+            "usuario_id"
+        ],
+        "properties": {
+            "id": {
+                "type": "integer",
+                "title": "The id Schema",
+                "examples": [
+                    2054551,
+                    2054552
+                ]
+            },
+            "nome": {
+                "type": "string",
+                "title": "The nome Schema",
+                "examples": [
+                    "Conta mesmo nome",
+                    "Conta para movimentacoes",
+                    "Conta com movimentacao",
+                    "Conta para saldo",
+                    "Conta para extrato",
+                    "Conta Alterada com Sucesso",
+                    "Conta de investimentos"
+                ]
+            },
+            "visivel": {
+                "type": "boolean",
+                "title": "The visivel Schema",
+                "examples": [
+                    true
+                ]
+            },
+            "usuario_id": {
+                "type": "integer",
+                "title": "The usuario_id Schema",
+                "examples": [
+                    34767
+                ]
+            }
+        }
+    },
+    "examples": [
+        [
+            {
+                "id": 2054551,
+                "nome": "Conta mesmo nome",
+                "visivel": true,
+                "usuario_id": 34767
+            },
+            {
+                "id": 2054552,
+                "nome": "Conta para movimentacoes",
+                "visivel": true,
+                "usuario_id": 34767
+            }
+        ]
+    ]
+}
