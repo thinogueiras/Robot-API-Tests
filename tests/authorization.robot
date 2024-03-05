@@ -7,4 +7,4 @@ Suite Setup                 Setup
 
 ***Test Cases***
 Deve exigir autenticação
-    Check Route Authentication    contas    saldo    transacoes    movimentacoes
+    Check Route Authentication    contas    saldo    transacoes

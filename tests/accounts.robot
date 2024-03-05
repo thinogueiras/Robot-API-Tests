@@ -7,7 +7,7 @@ Suite Setup                 Setup
 
 *** Test Cases ***
 Deve retornar todas as contas
-    ${response}             Get Account
+    ${response}             Get All Accounts
 
     ${size}                 Get Length            ${response.json()}
 

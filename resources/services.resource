@@ -7,7 +7,7 @@ Library                     libs/search_values.py
 Resource                    helpers.resource
 
 *** Keywords ***
-Get Account
+Get All Accounts
     ${response}             GET On Session
     ...                     alias=Barriga-REST
     ...                     url=/contas
@@ -49,7 +49,15 @@ Delete Account
 
     RETURN                  ${response}
 
-Get Account Balance        
+Get All Balances
+    ${response}             GET On Session
+    ...                     alias=Barriga-REST
+    ...                     url=/saldo
+    ...                     expected_status=any
+
+    RETURN                  ${response}
+
+Get Account Balance
     [Arguments]             ${account_name}
 
     ${account_id}           Get Account ID By Name      ${account_name}
