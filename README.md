@@ -4,7 +4,7 @@
 
 ## Pré-requisitos mínimos de ambiente:
 
-* [Python](https://www.python.org/downloads/) 3.10.x.
+* [Python](https://www.python.org/downloads/) 3.11.x.
 
 ## Instalação do projeto:
 

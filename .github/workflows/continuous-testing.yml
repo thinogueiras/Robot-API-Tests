@@ -7,7 +7,8 @@ on:
       branches: [ main ]
 
 jobs:
-  api-tests:
+  tests:
+    timeout-minutes: 15
     runs-on: ubuntu-latest
     name: API Tests 🤖🤖
 
@@ -15,17 +16,22 @@ jobs:
       - name: Checkout 🚀🚀
         uses: actions/checkout@v4
 
+      - name: Setup Python 🔧🔧
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
       - name: Install dependencies ➕➕ 
         run: pip install -r requirements.txt
 
       - name: API Tests 🧪🧪
         run: robot -d ./reports -v EMAIL:${{ secrets.EMAIL }} -v PASSWORD:${{ secrets.PASSWORD }} tests
 
-      - name: Upload Reports 📖📖
+      - name: Publish Robot Reports 📄📄
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: Reports
+          name: Robot-Reports
           path: reports
           retention-days: 90
           if-no-files-found: warn
@@ -53,3 +59,21 @@ jobs:
           SLACK_TITLE: 'Some tests failed'
           SLACK_MESSAGE: ':fire:  Tests failed  :fire:'
           SLACK_USERNAME: FAILURE
+
+  reports:
+    if: always()
+    needs: [tests] 
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    name: Reports 📄📄
+    steps:
+    - uses: actions/checkout@v4
+    - name: Download Robot Reports
+      uses: actions/download-artifact@v4
+      with:
+        name: Robot-Reports
+        path: reports
+    - name: Send report to commit
+      uses: joonvena/robotframework-reporter-action@v2.4
+      with:
+        gh_access_token: ${{ secrets.GITHUB_TOKEN }}
