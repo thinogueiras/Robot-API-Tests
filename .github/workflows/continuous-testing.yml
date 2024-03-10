@@ -28,11 +28,11 @@ jobs:
         run: robot -d ./reports -v EMAIL:${{ secrets.EMAIL }} -v PASSWORD:${{ secrets.PASSWORD }} tests
 
       - name: Publish Robot Reports 📄📄
-        if: always()
         uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: Robot-Reports
-          path: ./reports/
+          path: reports
           retention-days: 90
           if-no-files-found: warn
 
@@ -68,33 +68,14 @@ jobs:
     name: Reports 📄📄
     steps:
       - uses: actions/checkout@v4
+
       - name: Download Robot Reports
         uses: actions/download-artifact@v4
         with:
           name: Robot-Reports
-          path: ./reports/
+          path: reports
+
       - name: Send report to commit
         uses: joonvena/robotframework-reporter-action@v2.4
         with:
           gh_access_token: ${{ secrets.GITHUB_TOKEN }}
-
-  deploy:
-    needs: [reports]
-    runs-on: ubuntu-latest
-    name: Deploy Reports 🚀📄
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v4
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./reports/
-
-      - name: Deploy Reports To GitHub Pages
-        uses: actions/deploy-pages@v4
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
